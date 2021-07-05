@@ -1,0 +1,30 @@
+{
+  "name": "gcp-cloud-function-post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist --source-map",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucatodeschini/gcp-cloud-function-post.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucatodeschini/gcp-cloud-function-post/issues"
+  },
+  "homepage": "https://github.com/lucatodeschini/gcp-cloud-function-post#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "axios": "^0.21.1",
+    "google-auth-library": "^7.0.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.23.0",
+    "jest": "^26.4.2"
+  }
+}

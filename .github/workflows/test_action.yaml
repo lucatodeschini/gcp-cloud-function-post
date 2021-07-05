@@ -1,0 +1,23 @@
+name: Testing push http notification
+
+on:
+  push:
+    - main
+
+jobs:
+  simple-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+      - run: echo "${{ secrets.CLOUD_FUNCTION_INVOKER_KEY }}" | base64 --decode > key.json
+      - uses: ./
+        id: gcp-cloud-function-post
+        with:
+          cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
+          json_body: '{"test":"abc"}'
+
+      - name: verify
+        run: echo "Status ${{steps.push-http-notification.outputs.result}}"
+

@@ -1,0 +1,18 @@
+name: "GCP Cloud Function Post"
+description: "Perform a post call to a GCP Cloud Function"
+inputs:
+  cloud_function_url:
+    description: "Cloud function url"
+    required: true
+  json_body:
+    description: "Call payload body in plain text"
+    required: false
+outputs:
+  response:
+    description: "Http post response"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: terminal
+  color: gray-dark
