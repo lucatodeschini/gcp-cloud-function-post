@@ -30,6 +30,9 @@ jobs:
             KEY2=VALUE2,
             KEY3=VALUE3
 
-      - name: verify
+      - name: parsed input
         run: echo "Status ${{steps.gcp-cloud-function-post-key-value.outputs.parsed_input}}"
+
+      - name: verify
+        run: echo "Status ${{steps.gcp-cloud-function-post-key-value.outputs.result}}"
 
