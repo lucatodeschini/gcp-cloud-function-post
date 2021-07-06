@@ -2,7 +2,7 @@ name: Testing push http notification
 
 on:
   push:
-    - main
+  workflow_dispatch:
 
 jobs:
   simple-test:
