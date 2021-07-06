@@ -19,5 +19,5 @@ jobs:
           json_body: '{"test":"abc"}'
 
       - name: verify
-        run: echo "Status ${{steps.push-http-notification.outputs.result}}"
+        run: echo "Status ${{steps.gcp-cloud-function-post.outputs.result}}"
 
