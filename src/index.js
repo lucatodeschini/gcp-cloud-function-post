@@ -15,7 +15,7 @@ async function main() {
         message = JSON.parse(jsonBody)
     }else{
         let input = keyValue.replace(/(\r\n|\n|\r)/gm, "");
-        message = '{"' + input.replace(/,/g, '", "').replace(/=/g, '": "') + '"}';
+        message = JSON.parse('{"' + input.replace(/,/g, '", "').replace(/=/g, '": "') + '"}');
         core.setOutput('parsed_input', message)
     }
 
