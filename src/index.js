@@ -14,7 +14,9 @@ async function main() {
     if(jsonBody){
         message = JSON.parse(jsonBody)
     }else{
-        core.setOutput('parsed_input', keyValue)
+        let input = keyValue.replace(/(\r\n|\n|\r)/gm, "");
+        message = '{"' + input.replace(/ /g, '", "').replace(/=/g, '": "') + '"}';
+        core.setOutput('parsed_input', message)
     }
 
     axios.post(cloudFunctionUrl, message, config)
