@@ -21,3 +21,15 @@ jobs:
       - name: verify
         run: echo "Status ${{steps.gcp-cloud-function-post.outputs.result}}"
 
+      - uses: ./
+        id: gcp-cloud-function-post-key-value
+        with:
+          cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
+          key_value: |
+            KEY1=VALUE1,
+            KEY2=VALUE2,
+            KEY3=VALUE3
+
+      - name: verify
+        run: echo "Status ${{steps.gcp-cloud-function-post-key-value.outputs.parsed_input}}"
+

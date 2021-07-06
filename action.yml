@@ -7,9 +7,15 @@ inputs:
   json_body:
     description: "Call payload body in plain text"
     required: false
+  key_value:
+    description: "Comma separated key/value list"
+    required: false
 outputs:
   response:
     description: "Http post response"
+  parsed_input:
+    description: ""
+
 runs:
   using: "node12"
   main: "dist/index.js"
