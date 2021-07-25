@@ -21,7 +21,8 @@
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4",
     "axios": "^0.21.1",
-    "google-auth-library": "^7.0.2"
+    "google-auth-library": "^7.0.2",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.23.0",

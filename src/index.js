@@ -1,5 +1,6 @@
-const axios = require('axios')
 const core = require('@actions/core');
+const axios = require('axios');
+const moment = require('moment');
 
 const {getAuthConfigHeader} = require("./utils");
 
@@ -17,6 +18,10 @@ async function main() {
         let input = keyValue.replace(/(\r\n|\n|\r)/gm, "");
         message = JSON.parse('{"' + input.replace(/,/g, '", "').replace(/=/g, '": "') + '"}');
         core.setOutput('parsed_input', message)
+    }
+
+    if(addTimestamp && !message['timestamp']){
+        message['timestamp'] = moment().format('YYYY-mm-dd HH:MM:SS')
     }
 
     axios.post(cloudFunctionUrl, message, config)
