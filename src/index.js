@@ -21,7 +21,7 @@ async function main() {
     }
 
     if(!message['timestamp']){
-        message['timestamp'] = moment().format('YYYY-mm-dd HH:MM:SS')
+        message['timestamp'] = moment().format('YYYY-MM-DD hh:mm:ss')
     }
 
     core.setOutput('parsed_input', message)
