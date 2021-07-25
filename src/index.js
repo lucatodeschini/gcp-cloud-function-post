@@ -17,12 +17,14 @@ async function main() {
     }else{
         let input = keyValue.replace(/(\r\n|\n|\r)/gm, "");
         message = JSON.parse('{"' + input.replace(/,/g, '", "').replace(/=/g, '": "') + '"}');
-        core.setOutput('parsed_input', message)
+
     }
 
     if(addTimestamp && !message['timestamp']){
         message['timestamp'] = moment().format('YYYY-mm-dd HH:MM:SS')
     }
+
+    core.setOutput('parsed_input', message)
 
     axios.post(cloudFunctionUrl, message, config)
          .then((response) => {
