@@ -49,17 +49,17 @@ jobs:
         id: gcp-cloud-function-post
         with:
           cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
-          json_body: '{"test":"abc"}'
+          json_body: '{"source":"RELEASE_main", "test":"abc"}'
 
       - name: verify
         run: echo "Status ${{steps.gcp-cloud-function-post.outputs.result}}"
 
-      - uses: lucatodeschini/gcp-cloud-function-post@v0.0.4
+      - uses: lucatodeschini/gcp-cloud-function-post@main
         id: gcp-cloud-function-post-key-value
         with:
           cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
           key_value: |
-            SOURCE=RELEASE,
+            SOURCE=RELEASE_main,
             KEY1=VALUE1,
             KEY2=VALUE2,
             KEY3=VALUE3
