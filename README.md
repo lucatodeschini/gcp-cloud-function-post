@@ -103,3 +103,14 @@ If you don't want to use the default timestamp you can override it, simply provi
           cloud_function_url: ${{ CLOUD_FUNCTION_URL }}
           json_body: { "KEY1": "VALUE1", "KEY2": "VALUE2", "KEY3": "VALUE3", "timestamp": "2031-01-01 00:00:00"}
 ```
+
+### Result
+The cloud function will log:
+```json
+{
+  "KEY1": "VALUE1",
+  "KEY2": "VALUE2",
+  "KEY3": "VALUE3",
+  "timestamp": "2031-01-01 00:00:00"
+}
+```
