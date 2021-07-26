@@ -54,7 +54,7 @@ jobs:
       - name: verify
         run: echo "Status ${{steps.gcp-cloud-function-post.outputs.result}}"
 
-      - uses: lucatodeschini/gcp-cloud-function-post@main
+      - uses: lucatodeschini/gcp-cloud-function-post@v0.0.5
         id: gcp-cloud-function-post-key-value
         with:
           cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
