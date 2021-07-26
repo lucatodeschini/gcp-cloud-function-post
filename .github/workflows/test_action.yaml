@@ -45,7 +45,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: echo "${{ secrets.CLOUD_FUNCTION_INVOKER_KEY }}" | base64 --decode > key.json
-      - uses: lucatodeschini/gcp-cloud-function-post@latest
+      - uses: lucatodeschini/gcp-cloud-function-post@main
         id: gcp-cloud-function-post
         with:
           cloud_function_url: ${{ secrets.CLOUD_FUNCTION_URL }}
